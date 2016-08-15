@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OlimpiColombia</title>
+</head>
+<body>
+    <h1 align="center">OlimpiColombia</h1>
+    <h2>Deportes</h2>
+    {%for deporte in lista_deportes%}
+        <h3>{{deporte.nombre}}</h3>
+        <img src="{{deporte.url}}" alt="{{deporte.nombre}}" width="400" height="300">
+    {%endfor%}
+</body>
+</html>
