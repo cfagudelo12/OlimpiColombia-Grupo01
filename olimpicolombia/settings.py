@@ -129,24 +129,12 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_ROOT = "olimpiColombiaApp/static"
+STATIC_ROOT = "olimpicolombia/static"
 
 STATIC_URL = '/static/'
 
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
-
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-ALLOWED_HOSTS = ['*']
-
-DEBUG = True
-
-try:
-    from .local_settings import *
-except ImportError:
-    pass
