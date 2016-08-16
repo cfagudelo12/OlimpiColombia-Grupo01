@@ -42,9 +42,9 @@
     </div>
     <h2>Deportes</h2>
     {%for deporte in lista_deportes%}
-    <div class="col-sm-6 col-md-3" style="margin: 10px">
+    <div class="col-sm-6 col-md-3">
         <div class="thumbnail">
-            <a href="#"><img src="{{deporte.url}}" class alt="{{deporte.nombre}}"></a>
+            <a href="#"><img src="{{deporte.url}}" height="300px" class alt="{{deporte.nombre}}"></a>
             <div class="caption">
                 <h3 align="center">{{deporte.nombre}}</h3>
             </div>
