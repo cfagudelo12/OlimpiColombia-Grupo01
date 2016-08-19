@@ -53,8 +53,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'olimpicolombia01',
-    'bootstrap3',
+    'rest_framework',
+    'olimpicolombiaApp',
 ]
 
 MIDDLEWARE = [
