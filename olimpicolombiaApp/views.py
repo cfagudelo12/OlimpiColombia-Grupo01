@@ -1,12 +1,12 @@
-from rest_framework import generics, permissions
+from rest_framework import status
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 from .serializers import DeporteSerializer, DeportistaSerializer
 from .models import Deporte, Deportista
 
-class DeporteList(generics.ListAPIView):
-    model = Deporte
-    queryset = Deporte.objects.all()
-    serializer_class = DeporteSerializer
-    permission_classes = [
-        permissions.AllowAny
-    ]
+@api_view(['GET'])
+def lista_deportes(request):
+    deportes=Deporte.objects.all()
+    serializer=DeporteSerializer(deportes, many=True)
+    return Response(serializer.data)

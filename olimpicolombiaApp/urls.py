@@ -1,7 +1,9 @@
 from django.conf.urls import url, include
-
-from .views import DeporteList
+from rest_framework.urlpatterns import format_suffix_patterns
+from . import views
 
 urlpatterns =  [
-    url(r'deportes$',DeporteList.as_view()),
+    url(r'deportes$',views.lista_deportes),
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)
