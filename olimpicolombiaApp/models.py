@@ -13,3 +13,16 @@ class Deportista(models.Model):
     peso=models.IntegerField
     estatura=models.IntegerField
     entrenador=models.CharField(max_length=120)
+
+class Resultado(models.Model):
+    resultado = models.CharField(max_length=50)
+
+class Modalidad(models.Model):
+    modalidad = models.CharField(max_length=50)
+
+class Calendario(models.Model):
+    deportista = models.ForeignKey(Deportista)
+    fecha_hora = models.DateTimeField()
+    resultado = models.ForeignKey(Resultado)
+    modalidad = models.ForeignKey(Modalidad)
+    unique_together = ("deportista", "fecha_hora")
