@@ -93,9 +93,9 @@ WSGI_APPLICATION = 'olimpicolombia.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'grupo1agiles',
+        'NAME': 'olimpicolombia',
+        'USER': 'agiles',
+        'PASSWORD': 'agiles',
         'HOST': 'localhost',
         'PORT': '',
     }
