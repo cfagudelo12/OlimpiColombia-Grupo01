@@ -1,0 +1,26 @@
+{
+  "name": "static",
+  "homepage": "https://github.com/cfagudelo12/OlimpiColombia-Grupo01",
+  "authors": [
+    "José Miguel <jm.suarez201@uniandes.edu.co>"
+  ],
+  "description": "",
+  "main": "app/app.js",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "angular-resource": "^1.5.8",
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "underscore": "^1.8.3",
+    "moment": "^2.14.1"
+  }
+}
