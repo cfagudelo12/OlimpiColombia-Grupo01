@@ -5,7 +5,9 @@
 <head>
     <meta charset="UTF-8">
     <title>OlimpiColombia</title>
+    <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Patua+One'  >
     <link rel="stylesheet" type="text/css" href="{% static "bower_components/bootstrap/dist/css/bootstrap.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/general.css" %}">
 </head>
 <body ng-app="app">
 <nav class="navbar navbar-default">
@@ -42,6 +44,15 @@
 <script src="{% static "bower_components/angular-route/angular-route.min.js" %}"></script>
 <script src="{% static "bower_components/angular-resource/angular-resource.js" %}"></script>
 <script src="{% static "app/app.js" %}"></script>
+
+<!-- load controllers -->
 <script src="{% static "app/views/deportes/deportes.js" %}"></script>
+<script src="{% static "app/views/deportes/dir-deporte.js" %}"></script>
+<script src="{% static "app/views/deportistas/deportistas.js" %}"></script>
+
+<!-- load models -->
+<script src="{% static "app/models/deporte-model.js" %}"></script>
+<script src="{% static "app/models/deportista-model.js" %}"></script>
+<script src="{% static "app/models/evento-model.js" %}"></script>
 </body>
 </html>

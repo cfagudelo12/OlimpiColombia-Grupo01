@@ -17,6 +17,7 @@
 			}
 		});
 	};
+	var roorDir = 'static/app/views/';
 
 
 	var app = angular.module('app', ['ngResource', 'ngRoute']);
@@ -25,14 +26,14 @@
 		$routeProvider
 			.when('/', {
 				controller: 'DeportesCtrl',
-				templateUrl: 'static/app/views/deportes/deportes.html'/*,
+				templateUrl: roorDir + 'deportes/deportes.html'/*,
 				resolve: {
 					loggedin: checkLoggedin
 				}*/
 			})
-			.when('/:idDeporte', {
-				controller: 'AdminCtrl',
-				templateUrl: 'app/admin/admin.html'/*,
+			.when('/:deporteId', {
+				controller: 'DeportistasCtrl',
+				templateUrl: roorDir + 'deportistas/deportistas.html'/*,
 				resolve: {
 					loggedin: checkLoggedin
 				}*/

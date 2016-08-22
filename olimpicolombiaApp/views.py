@@ -10,3 +10,9 @@ def lista_deportes(request):
     deportes=Deporte.objects.all()
     serializer=DeporteSerializer(deportes, many=True)
     return Response(serializer.data)
+
+@api_view(['GET'])
+def deporte (request, idDeporte):
+    deporte = Deporte.objects.get(id=idDeporte)
+    serializer = DeporteSerializer(deporte)
+    return Response(serializer.data)

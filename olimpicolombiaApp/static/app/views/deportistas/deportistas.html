@@ -1,0 +1,39 @@
+<dir-deporte
+deporte="deporte">
+</dir-deporte>
+<h2>Deportistas:</h2>
+<div class="row  T_lobster multibutton right left unselected" style="margin: 20px">
+    <div class="col-sm-12 col-md-4" ng-repeat="deportista in deportistas">
+        <div class="thumbnail flexCenter">
+            <img ng-src="{{deportista.urlImagen}}" height="200px" class alt="{{deportista.nombre}}">
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-4" ng-repeat="deportista in deportistas">
+        <div class="">
+            <b>Nombre:</b> {{deportista.nombre}}
+        </div>
+        <div class="">
+            <b>Luegar de nacimiento:</b> {{deportista.lugarNacimiento}}
+        </div>
+        <div class="">
+            <b>Fecha de nacimiento:</b> {{deportista.fechaNacimiento}}
+        </div>
+        <div class="">
+            <b>Edad:</b> {{deportista.edad}}
+        </div>
+        <div class="">
+            <b>Peso:</b>{{deportista.peso}}
+        </div>
+        <div class="">
+            <b>Estatura:</b>{{deportista.estatura}}
+        </div>
+        <div class="">
+            <b>Entrenador:</b>{{deportista.entrenador}}
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-4" ng-repeat="deportista in deportistas">
+        <div class="thumbnail centerFlex">
+            <iframe width="320" height="202" ng-src="{{trustSrc(deportista.urlVideo)}}" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
