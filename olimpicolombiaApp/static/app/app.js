@@ -37,6 +37,10 @@
 					loggedin: checkLoggedin
 				}*/
 			})
+			.when('/deportistas/:id/calendario', {
+				controller: 'EventosCtrl',
+				templateUrl: 'static/app/views/eventos/eventos.html'
+			})
 			.otherwise({
 				controller: 'LoginCtrl',
 				templateUrl: 'app/login/login.html',

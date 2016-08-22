@@ -1,0 +1,21 @@
+<div class="container">
+    <h2>Calendario de eventos</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Modalidad</th>
+            <th>Resultado</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="evento in eventos">
+            <td>{{evento.fecha_hora}}</td>
+            <td>{{evento.fecha_hora}}</td>
+            <td>{{evento.modalidad}}</td>
+            <td>{{evento.resultado}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
