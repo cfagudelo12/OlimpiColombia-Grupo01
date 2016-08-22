@@ -12,6 +12,12 @@
 		$scope.deportistas = Deportista.query({
 			idDeporte: $routeParams.deporteId
 		});
+		$scope.dateFormat = function (fecha) {
+			moment.locale('es');
+			console.log("MOMENT LENGUAGE: ", moment.locale('es'))
+
+			return moment(fecha).format('DD [de] MMMM [de] YYYY');
+		};
 		console.log("Deporte seleccionado", $scope.deporte, $scope.deportistas);
 	});
 

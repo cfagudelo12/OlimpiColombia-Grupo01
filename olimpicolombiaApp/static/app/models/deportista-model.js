@@ -9,7 +9,7 @@
 			return [{
 				nombre: "Caterine Ibargüen",
 				lugarNacimiento: "Lugar",
-				fechaNacimiento: new Date("2012-05-23"),
+				fechaNacimiento: new Date("1984-07-23"),
 				edad: 23,
 				peso: 67,
 				estatura: 1.85,
