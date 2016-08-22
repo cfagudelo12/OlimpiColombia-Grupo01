@@ -13,6 +13,8 @@ class Deportista(models.Model):
     peso=models.IntegerField
     estatura=models.IntegerField
     entrenador=models.CharField(max_length=120)
+    urlImagen=models.CharField(max_length=1000)
+    urlVideo = models.CharField(max_length=1000)
 
 class Resultado(models.Model):
     resultado = models.CharField(max_length=50)
