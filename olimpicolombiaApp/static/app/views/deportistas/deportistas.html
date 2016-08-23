@@ -2,7 +2,7 @@
 deporte="deporte">
 </dir-deporte>
 <h2>Deportistas:</h2>
-<div class="row  T_lobster multibutton right left unselected" style="margin: 20px">
+<div class="row multibutton right left unselected" style="margin: 20px">
     <div class="col-xs-12 col-md-4" ng-repeat="deportista in deportistas">
         <div class="thumbnail flexCenter">
             <img ng-src="{{deportista.urlImagen}}" height="200px" class alt="{{deportista.nombre}}">
@@ -35,6 +35,6 @@ deporte="deporte">
         <div class="thumbnail centerFlex">
             <iframe width="100%" style="min-height:200px" ng-src="{{trustSrc(deportista.urlVideo)}}" frameborder="0" allowfullscreen></iframe>
         </div>
-        <button class="btn-default"><a href="#/deportistas/:{{ deportista.id }}">Ver calendario</a></button>
+        <a href="#/deportistas/:{{ deportista.id }}"><button class="btn btn-default">Ver calendario</button></a>
     </div>
 </div>
