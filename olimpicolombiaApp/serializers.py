@@ -4,14 +4,16 @@ from .models import Deporte, Deportista, Evento
 class DeporteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Deporte
-        fields = ('id','nombre','url')
+        fields = '__all__'
 
 class DeportistaSerializer(serializers.ModelSerializer):
+    edad = serializers.IntegerField(max_value=None,min_value=None)
+
     class Meta:
         model = Deportista
-        fields = ('id','deporte','nombre','lugarNacimiento','fechaNacimiento','entrenador','urlImagen','urlVideo')
+        fields = '__all__'
 
 class EventoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Evento
-        fields = ('id','deportista', 'fecha_hora', 'resultado', 'modalidad')
+        fields = '__all__'
