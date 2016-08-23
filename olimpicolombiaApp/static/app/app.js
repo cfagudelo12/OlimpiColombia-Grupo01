@@ -38,9 +38,12 @@
 					loggedin: checkLoggedin
 				}*/
 			})
-			.when('/deportistas/:id/calendario', {
+			.when('/deportistas/:deportistaId', {
 				controller: 'EventosCtrl',
-				templateUrl: 'static/app/views/eventos/eventos.html'
+				templateUrl: roorDir + 'eventos/eventos.html'/*,
+				resolve: {
+					loggedin: checkLoggedin
+				}*/
 			})
 			.otherwise({
 				controller: 'LoginCtrl',

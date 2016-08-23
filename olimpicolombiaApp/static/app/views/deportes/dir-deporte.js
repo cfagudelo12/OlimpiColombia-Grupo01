@@ -13,8 +13,6 @@
     });
 
     function controller($scope, Deporte) {
-        console.log("DoporteSeleccionado Directiva", $scope.deporte);
-
     }
 
 })();

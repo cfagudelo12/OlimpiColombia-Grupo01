@@ -1,3 +1,9 @@
+<div class="row">
+    <dir-deporte deporte="deporte">
+    </dir-deporte>
+    <dir-deportista deportista="deportista">
+    </dir-deportista>
+</div>
 <div class="container">
     <h2>Calendario de eventos</h2>
     <table class="table">
@@ -11,10 +17,10 @@
         </thead>
         <tbody>
         <tr ng-repeat="evento in eventos">
-            <td>{{evento.fecha_hora}}</td>
-            <td>{{evento.fecha_hora}}</td>
-            <td>{{evento.modalidad}}</td>
-            <td>{{evento.resultado}}</td>
+            <td align="center">{{dateFormat(evento.fecha_hora)}}</td>
+            <td align="center">{{hourFormat(evento.fecha_hora)}}</td>
+            <td align="center">{{evento.modalidad}}</td>
+            <td align="center">{{evento.resultado}}</td>
         </tr>
         </tbody>
     </table>

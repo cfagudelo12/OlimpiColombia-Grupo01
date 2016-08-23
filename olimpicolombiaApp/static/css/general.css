@@ -29,12 +29,10 @@ th {
   text-align: center;
   background-color: white;
 }
-
 /*td:first-child { border-top-left-radius: 5px; }
 td:last-child { border-top-right-radius: 5px; }
 td:first-child { border-bottom-left-radius: 5px; }
 td:last-child { border-bottom-right-radius: 5px; }*/
-
 
 .title{
   display: inline-block;
