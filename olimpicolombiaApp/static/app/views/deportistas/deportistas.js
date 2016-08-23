@@ -9,6 +9,7 @@
 		$scope.deporte = Deporte.get({
 			idDeporte: $routeParams.idDeporte
 		});
+		console.log("$routeParams.idDeporte", $routeParams.idDeporte)
 		$scope.deportistas = Deportista.query({
 			idDeporte: $routeParams.idDeporte
 		});
