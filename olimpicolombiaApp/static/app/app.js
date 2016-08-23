@@ -38,7 +38,7 @@
 					loggedin: checkLoggedin
 				}*/
 			})
-			.when('/deportistas/:deportistaId', {
+			.when('/deportistas/:idDeportista', {
 				controller: 'EventosCtrl',
 				templateUrl: roorDir + 'eventos/eventos.html'/*,
 				resolve: {
