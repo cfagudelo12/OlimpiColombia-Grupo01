@@ -23,6 +23,12 @@ def lista_deportistas(request, idDeporte):
     return Response(serializer.data)
 
 @api_view(['GET'])
+def deportista(request, idDeportista):
+    deportista = Deportista.objects.get(id=idDeportista)
+    serializer = DeportistaSerializer(deportista)
+    return Response(serializer.data)
+
+@api_view(['GET'])
 def lista_eventos(request, idDeportista):
     eventos=Evento.objects.filter(deportista=idDeportista)
     serializer = EventoSerializer(eventos, many=True)
