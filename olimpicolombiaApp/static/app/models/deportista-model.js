@@ -17,7 +17,7 @@
 	}];
 
 	app.factory('Deportista', function($resource) {
-		var resource = $resource('/api/deportes/:deporteId/deportistas');
+		var resource = $resource('/api/deportes/:idDeporte/deportistas',{idDeporte:"@idDeporte"});
 		var model = {};
 		model.query = function(params) {
 			return mockupDeportistasService;
@@ -25,7 +25,7 @@
 		model.get = function(params) {
 			return mockupDeportistasService[0];
 		};
-		return model;
+		return resource;
 	});
 
 })();

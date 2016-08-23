@@ -3,7 +3,7 @@
 	var app = angular.module('app');
 
 	app.factory('Evento', function($resource) {
-		var resource = $resource('/api/deportistas/:id/calendario');
+		var resource = $resource('/api/deportistas/:idDeportista/eventos',{idDeportista:"@idDeportista"});
 		var model = {};
 		model.query = function(params) {
 			return [{
@@ -12,6 +12,6 @@
 				resultado: "1"
 			}];
 		};
-		return model;
+		return resource;
 	});
 })();

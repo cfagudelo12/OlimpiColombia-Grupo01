@@ -1,17 +1,17 @@
 from rest_framework import serializers
-from .models import Deporte, Deportista, Calendario
+from .models import Deporte, Deportista, Evento
 
 class DeporteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Deporte
-        fields = ('nombre','url','id')
+        fields = ('id','nombre','url')
 
 class DeportistaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Deportista
-        fields = ('nombre','lugarNacimiento','fechaNacimiento','edad','peso','estatura','entrenador','id')
+        fields = ('id','deporte','nombre','lugarNacimiento','fechaNacimiento','entrenador','urlImagen','urlVideo')
 
-class CalendrioSerializer(serializers.ModelSerializer):
+class EventoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Calendario
-        fields = ('deportista', 'fecha_hora', 'resultado', 'modalidad')
+        model = Evento
+        fields = ('id','deportista', 'fecha_hora', 'resultado', 'modalidad')

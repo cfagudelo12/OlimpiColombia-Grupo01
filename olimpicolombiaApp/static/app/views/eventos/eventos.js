@@ -7,13 +7,13 @@
 			return $sce.trustAsResourceUrl(src);
 		};
 		$scope.deportista = Deportista.get({
-			id: $routeParams.deportistaId
+			idDeportista: $routeParams.idDeportista
 		});
         $scope.deporte = Deporte.get({
-		    id: $scope.deportista.idDeporte
+		    idDeporte: $scope.deportista.idDeporte
         })
 		$scope.eventos = Evento.query({
-			idDeportista: $routeParams.deportistaId
+			idDeportista: $routeParams.idDeportista
 		});
         $scope.dateFormat = function (fecha) {
 			moment.locale('es');

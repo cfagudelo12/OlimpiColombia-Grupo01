@@ -2,10 +2,17 @@ from django.db import models
 
 # Create your models here.
 class Deporte(models.Model):
+    def __str__(self):
+        return "Deporte: " + self.nombre
+
     nombre=models.CharField(max_length=80)
     url=models.CharField(max_length=1000)
 
 class Deportista(models.Model):
+    def __str__(self):
+        return "Deportista: " + self.nombre
+    
+    deporte=models.ForeignKey(Deporte)
     nombre=models.CharField(max_length=120)
     lugarNacimiento=models.CharField(max_length=120)
     fechaNacimiento=models.DateField()
@@ -16,15 +23,12 @@ class Deportista(models.Model):
     urlImagen=models.CharField(max_length=1000)
     urlVideo = models.CharField(max_length=1000)
 
-class Resultado(models.Model):
-    resultado = models.CharField(max_length=50)
+class Evento(models.Model):
+    def __str__(self):
+        return "Evento: " + self.deportista.nombre +", " + self.modalidad
 
-class Modalidad(models.Model):
-    modalidad = models.CharField(max_length=50)
-
-class Calendario(models.Model):
     deportista = models.ForeignKey(Deportista)
     fecha_hora = models.DateTimeField()
-    resultado = models.ForeignKey(Resultado)
-    modalidad = models.ForeignKey(Modalidad)
+    resultado = models.IntegerField()
+    modalidad = models.CharField(max_length=100)
     unique_together = ("deportista", "fecha_hora")

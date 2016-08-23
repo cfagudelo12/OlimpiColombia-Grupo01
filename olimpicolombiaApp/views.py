@@ -1,22 +1,8 @@
-from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework import generics
 
-from .serializers import DeporteSerializer, DeportistaSerializer, CalendrioSerializer
-from .models import Deporte, Deportista, Calendario
-
-class CalendarioList(generics.ListAPIView):
-    serializer_class = CalendrioSerializer
-
-    def get_queryset(self):
-        """
-        This view should return a list of all the purchases for
-        the user as determined by the username portion of the URL.
-        """
-        idDeportista = self.kwargs['idDeportista']
-        return Calendario.objects.filter(deportista=idDeportista)
-
+from .serializers import DeporteSerializer, DeportistaSerializer, EventoSerializer
+from .models import Deporte, Deportista, Evento
 
 @api_view(['GET'])
 def lista_deportes(request):
@@ -28,4 +14,16 @@ def lista_deportes(request):
 def deporte (request, idDeporte):
     deporte = Deporte.objects.get(id=idDeporte)
     serializer = DeporteSerializer(deporte)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def lista_deportistas(request, idDeporte):
+    deportistas = Deportista.objects.filter(deporte=idDeporte)
+    serializer = DeportistaSerializer(deportistas, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def lista_eventos(request, idDeportista):
+    eventos=Evento.objects.filter(deportista=idDeportista)
+    serializer = EventoSerializer(eventos, many=True)
     return Response(serializer.data)
