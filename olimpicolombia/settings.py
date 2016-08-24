@@ -47,7 +47,7 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 # AWS keys
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-AWS_STORAGE_BUCKET_NAME = 'olimpicolombia-g01'
+AWS_STORAGE_BUCKET_NAME = 'olimpicolombia01'
 
 # The region of your bucket, more info:
 # http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region
