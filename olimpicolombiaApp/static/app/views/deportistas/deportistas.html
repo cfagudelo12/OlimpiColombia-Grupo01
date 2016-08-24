@@ -1,40 +1,42 @@
 <dir-deporte
-deporte="deporte">
+        deporte="deporte">
 </dir-deporte>
-<h2>Deportistas:</h2>
-<div class="row multibutton right left unselected" style="margin: 20px">
-    <div class="col-xs-12 col-md-4" ng-repeat="deportista in deportistas">
-        <div class="thumbnail flexCenter">
-            <img ng-src="{{deportista.urlImagen}}" height="200px" class alt="{{deportista.nombre}}">
+<div class="container" style="width: 90%">
+    <h2>Deportistas:</h2>
+    <div class="row multibutton right left unselected" style="margin: 20px">
+        <div class="col-xs-12 col-md-4" ng-repeat="deportista in deportistas">
+            <div class="thumbnail flexCenter">
+                <img ng-src="{{deportista.urlImagen}}" height="200px" class alt="{{deportista.nombre}}">
+            </div>
         </div>
-    </div>
-    <div class="col-xs-12 col-md-4" ng-repeat="deportista in deportistas">
-        <div class="">
-            <b>Nombre:</b> {{deportista.nombre}}
+        <div class="col-xs-12 col-md-4" ng-repeat="deportista in deportistas">
+            <div class="">
+                <b>Nombre:</b> {{deportista.nombre}}
+            </div>
+            <div class="">
+                <b>Luegar de nacimiento:</b> {{deportista.lugarNacimiento}}
+            </div>
+            <div class="">
+                <b>Fecha de nacimiento:</b> {{dateFormat(deportista.fechaNacimiento)}}
+            </div>
+            <div class="">
+                <b>Edad:</b> {{deportista.edad}} años
+            </div>
+            <div class="">
+                <b>Peso:</b> {{deportista.peso}} kg
+            </div>
+            <div class="">
+                <b>Estatura:</b> {{deportista.estatura}} cm
+            </div>
+            <div class="">
+                <b>Entrenador:</b> {{deportista.entrenador}}
+            </div>
         </div>
-        <div class="">
-            <b>Luegar de nacimiento:</b> {{deportista.lugarNacimiento}}
+        <div class="col-xs-12 col-md-4" ng-repeat="deportista in deportistas">
+            <div class="thumbnail centerFlex">
+                <iframe width="100%" style="min-height:200px" ng-src="{{trustSrc(deportista.urlVideo)}}" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <a href="#/deportistas/{{ deportista.id }}"><button class="btn btn-default">Ver calendario</button></a>
         </div>
-        <div class="">
-            <b>Fecha de nacimiento:</b> {{dateFormat(deportista.fechaNacimiento)}}
-        </div>
-        <div class="">
-            <b>Edad:</b> {{deportista.edad}}
-        </div>
-        <div class="">
-            <b>Peso:</b> {{deportista.peso}}
-        </div>
-        <div class="">
-            <b>Estatura:</b> {{deportista.estatura}}
-        </div>
-        <div class="">
-            <b>Entrenador:</b> {{deportista.entrenador}}
-        </div>
-    </div>
-    <div class="col-xs-12 col-md-4" ng-repeat="deportista in deportistas">
-        <div class="thumbnail centerFlex">
-            <iframe width="100%" style="min-height:200px" ng-src="{{trustSrc(deportista.urlVideo)}}" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <a href="#/deportistas/{{ deportista.id }}"><button class="btn btn-default">Ver calendario</button></a>
     </div>
 </div>
