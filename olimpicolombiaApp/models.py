@@ -1,4 +1,5 @@
 from django.db import models
+from s3direct.fields import S3DirectField
 
 # Create your models here.
 class Deporte(models.Model):
@@ -21,7 +22,7 @@ class Deportista(models.Model):
     estatura=models.IntegerField()
     entrenador=models.CharField(max_length=120)
     urlImagen=models.CharField(max_length=1000)
-    urlVideo = models.CharField(max_length=1000)
+    urlVideo = S3DirectField(dest='videos')
 
 class Evento(models.Model):
     def __str__(self):

@@ -44,6 +44,31 @@ STATICFILES_DIRS = (
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
+# AWS keys
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_STORAGE_BUCKET_NAME = 'olimpicolombia-g01'
+
+# The region of your bucket, more info:
+# http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region
+S3DIRECT_REGION = 'us-west-2'
+
+# Destinations, with the following keys:
+#
+# key [required] Where to upload the file to
+# auth [optional] An ACL function to whether the current user can perform this action
+# allowed [optional] List of allowed MIME types
+# acl [optional] Give the object another ACL rather than 'public-read'
+# cache_control [optional] Cache control headers, eg 'max-age=2592000'
+# content_disposition [optional] Useful for sending files as attachements
+# bucket [optional] Specify a different bucket for this particular object
+# server_side_encryption [optional] Encryption headers for buckets that require it
+#
+S3DIRECT_DESTINATIONS = {
+    # Allow anybody to upload any MIME type
+    'videos': {
+        'key': 'videos',
+    },}
 # Application definition
 
 INSTALLED_APPS = [
@@ -55,6 +80,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'olimpicolombiaApp',
+    's3direct',
 ]
 
 MIDDLEWARE = [
