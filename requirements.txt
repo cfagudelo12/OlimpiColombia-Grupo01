@@ -1,6 +1,7 @@
 dj-database-url==0.4.1
 Django==1.10
 django-filter==0.14.0
+django-s3direct==0.4.2
 djangorestframework==3.4.5
 gunicorn==19.6.0
 Markdown==2.6.6
