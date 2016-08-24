@@ -1,6 +1,10 @@
 <div class="row">
-    <dir-deportista deportista="deportista"></dir-deportista>
-    <dir-deporte deporte="deporte"></dir-deporte>
+    <div class="col-sm-6">
+        <dir-deporte deporte="deporte"></dir-deporte>
+    </div>
+    <div class="col-sm-6">
+        <dir-deportista deportista="deportista"></dir-deportista>
+    </div>
 </div>
 <div class="container">
     <h2>Calendario de eventos</h2>
@@ -11,7 +15,6 @@
             <th>Hora</th>
             <th>Modalidad</th>
             <th>Resultado</th>
-            <th>help</th>
         </tr>
         </thead>
         <tbody>
@@ -20,7 +23,6 @@
             <td align="center">{{hourFormat(evento.fecha_hora)}}</td>
             <td align="center">{{evento.modalidad}}</td>
             <td align="center">{{evento.resultado}}</td>
-            <td>{{ deportista.nombre }}</td>
         </tr>
         </tbody>
     </table>
