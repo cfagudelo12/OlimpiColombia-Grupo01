@@ -1,5 +1,8 @@
 from django.db import models
 from s3direct.fields import S3DirectField
+from django.forms import ModelForm
+from django.contrib.auth.models import User
+from django.contrib.auth import forms
 
 # Create your models here.
 class Deporte(models.Model):

@@ -1,7 +1,11 @@
-from rest_framework.decorators import api_view
+from rest_framework import status
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
+from rest_framework.permissions import AllowAny
 
-from .serializers import DeporteSerializer, DeportistaSerializer, EventoSerializer
+
+
+from .serializers import DeporteSerializer, DeportistaSerializer, EventoSerializer, UsuarioSerializer
 from .models import Deporte, Deportista, Evento
 
 @api_view(['GET'])
@@ -33,3 +37,11 @@ def lista_eventos(request, idDeportista):
     eventos=Evento.objects.filter(deportista=idDeportista)
     serializer = EventoSerializer(eventos, many=True)
     return Response(serializer.data)
+
+@api_view(['POST'])
+def add_user_view(request):
+    serializer = UsuarioSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

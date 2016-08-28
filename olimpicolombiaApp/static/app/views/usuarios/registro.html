@@ -1,0 +1,26 @@
+<div class="col-xs-12 col-md-4">
+    <h3>Crear usuario</h3>
+    <form>
+        <div class="form-group">
+            <label for="first_name">Nombres:</label>
+            <input type="text" class="form-control" ng-model="user.first_name">
+        </div>
+        <div class="form-group">
+            <label for="last_name">Apellidos:</label>
+            <input type="text" class="form-control" ng-model="user.last_name" >
+        </div>
+        <div class="form-group">
+            <label for="email">Correo electrónico:</label>
+            <input type="email" class="form-control" ng-model="user.email">
+        </div>
+        <div class="form-group">
+            <label for="username">Usuario Uniandes:</label>
+            <input type="text" class="form-control" ng-model="user.username">
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" ng-model="user.password">
+        </div>
+        <button ng-click="registrar(user)" class="btn btn-default">Registrar</button>
+    </form>
+</div>
