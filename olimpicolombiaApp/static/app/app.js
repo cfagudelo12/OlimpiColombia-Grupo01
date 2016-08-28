@@ -59,6 +59,18 @@
 					loggedin: checkLoggedin
 				}
 			});
+		$httpProvider.interceptors.push(interceptor);
 	});
+	function interceptor ($q, $location) {
+		return {
+
+			'responseError': function(rejection) {
+				if (rejection.status === 401 || rejection.status === 403) {
+					location.href = "auth/login"
+				}
+				return $q.reject(rejection);
+			}
+		};
+	}
 
 })();
