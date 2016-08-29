@@ -17,6 +17,11 @@
                 <li><a href="#/">Home</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a>Facebook<span class="glyphicon glyphicon-user"></span></a>
+                    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+                    </fb:login-button>
+                </li>
                 <li><a href="#/registro">Registrar <span class="glyphicon glyphicon-user"></span></a></li>
                 <li ng-if="!usuario.first_name"><a href="/auth/login">Login <span class="glyphicon glyphicon-log-in"></span></a></li>
                 <li ng-if="usuario.first_name"><a> {{ usuario.first_name }}<span class="glyphicon glyphicon-log-in"> </span></a></li>
