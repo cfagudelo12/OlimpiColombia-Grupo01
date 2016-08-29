@@ -3,8 +3,11 @@ from rest_framework.authentication import BasicAuthentication, SessionAuthentica
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.test import force_authenticate
+from rest_framework.parsers import JSONParser
+from django.contrib.auth.models import User
 
-from .serializers import DeporteSerializer, DeportistaSerializer, EventoSerializer, UsuarioSerializer
+from .serializers import DeporteSerializer, DeportistaSerializer, EventoSerializer, UsuarioSerializer, FacebookUser
 from .models import Deporte, Deportista, Evento
 
 @api_view(['GET'])
@@ -70,3 +73,17 @@ def current_user(request):
         })
     else:
         return Response(None)
+
+@api_view(['POST'])
+@authentication_classes((SessionAuthentication, BasicAuthentication))
+@permission_classes(())
+def facebook_login(request):
+    jsonFbUser = request.data
+    name = jsonFbUser['name']
+    email =  jsonFbUser['email']
+    print("Nombre", name);
+    print("Correo",email);
+    user = User.objects.get(email=email)
+    force_authenticate(request, user=user)
+    print("El usuario de la base de datos es:", user.username)
+    return Response("OK")

@@ -11,7 +11,7 @@
 	});
 
 	function controller($scope,Login) {
-		Login.get().$promise.then(function (usuario) {
+		Login.loggedIn().$promise.then(function (usuario) {
 			$scope.usuario = usuario;
 		});
 	}

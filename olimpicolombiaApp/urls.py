@@ -12,6 +12,7 @@ urlpatterns =  [
     url(r'^s3direct/', include('s3direct.urls')),
     url(r'^usuarios$', views.add_user_view ),
     url(r'login/loggedin$', views.current_user ),
+    url(r'login/facebook', views.facebook_login ),
 
 ]
 

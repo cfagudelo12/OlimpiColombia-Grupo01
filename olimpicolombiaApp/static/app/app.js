@@ -1,4 +1,4 @@
-(function() { 
+(function() {
 //var app = angular.module('app', [ 'autoDisplay', 'ngFileUpload'])
 
 	var checkLoggedin = function($q, $timeout, $http, $location, $rootScope, User) {
