@@ -25,7 +25,3 @@ class UsuarioSerializer(serializers.ModelSerializer):
         model = User
         fields = '__all__'
 
-class FacebookUser(serializers.Serializer):
-    def __init__(self, name, email):
-        self.name = name
-        self.email = email

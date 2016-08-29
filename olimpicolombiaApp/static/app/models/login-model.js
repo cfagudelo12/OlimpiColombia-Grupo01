@@ -10,10 +10,13 @@
 
     var app = angular.module('app');
 
-    app.factory('Login', function($resource, $window) {
+    app.factory('Login', function($resource, $window, $http, $route) {
 
-        var loginResource = $resource('/api/login/loggedin');
-        var facebookLoginResource = $resource('/api/login/facebook');
+        var listeners = [];
+        var user = null;
+
+        var loginUrl = '/api/login/loggedin';
+        var facebookLoginUrl = '/api/login/facebook';
         $window.fbAsyncInit = function() {
             FB.init({
                 appId      : '1650538868592829', //id para heroku:  273510376365830
@@ -37,14 +40,42 @@
             console.log('Welcome!  Fetching your information.... ');
             FB.api('/me', {fields: 'name, email'}, function(response) {
                 console.log('Successful login for: ' + response.name);
-                new facebookLoginResource(response).$save();
+                $http.post(facebookLoginUrl, response).then(function (resp) {
+                    console.log("Response: ", resp);
+                    notify(resp.data)
+                });
             });
+        }
+        function loggedIn() {
+            return loginResource.get();
+        }
+
+        function watchUser (callback) {
+            listeners.push(callback)
+            if(user)
+                callback(user)
+            else
+                refresh();
+        }
+        function refresh (){
+            $http.get(loginUrl).then(function (resp) {
+                console.log("usuario", resp.data);
+                notify(resp.data)
+
+            }, function (resp) {
+                facebookLogin();
+            })
+        }
+        function notify(user) {
+            listeners.forEach(function (callback) {
+                callback(user)
+            })
         }
 
         return {
-            loggedIn: function () {
-                return loginResource.get();
-            }
+            loggedIn: loggedIn,
+            facebookLogin: facebookLogin,
+            watchUser: watchUser
         };
     });
 

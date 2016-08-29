@@ -6,8 +6,10 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.test import force_authenticate
 from rest_framework.parsers import JSONParser
 from django.contrib.auth.models import User
-
-from .serializers import DeporteSerializer, DeportistaSerializer, EventoSerializer, UsuarioSerializer, FacebookUser
+from django.contrib.auth.models import User
+from django.contrib.auth import login
+from rest_framework import exceptions
+from .serializers import DeporteSerializer, DeportistaSerializer, EventoSerializer, UsuarioSerializer
 from .models import Deporte, Deportista, Evento
 
 @api_view(['GET'])
@@ -75,15 +77,24 @@ def current_user(request):
         return Response(None)
 
 @api_view(['POST'])
-@authentication_classes((SessionAuthentication, BasicAuthentication))
+@authentication_classes(())
 @permission_classes(())
 def facebook_login(request):
     jsonFbUser = request.data
     name = jsonFbUser['name']
-    email =  jsonFbUser['email']
+    email = jsonFbUser['email']
     print("Nombre", name);
-    print("Correo",email);
-    user = User.objects.get(email=email)
-    force_authenticate(request, user=user)
-    print("El usuario de la base de datos es:", user.username)
-    return Response("OK")
+    print("Correo", email);
+    try:
+        user = User.objects.get(email=email)
+        print("El usuario de la base de datos es:", user.username)
+    except User.DoesNotExist:
+        print("El usuario no se encuentra registredo")
+        raise exceptions.AuthenticationFailed('No such user')
+    login(request, user)
+    return Response({
+        'username': user.username,
+        'first_name': user.first_name,
+        'last_name': user.last_name,
+        'email': user.email,
+    })

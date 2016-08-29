@@ -10,10 +10,18 @@
 		};
 	});
 
-	function controller($scope,Login) {
-		Login.loggedIn().$promise.then(function (usuario) {
-			$scope.usuario = usuario;
-		});
+	function controller($scope, $timeout, Login) {
+
+		Login.watchUser(function (user) {
+			$scope.usuario = user;
+		})
+
+		$scope.loginFaceboook = function () {
+			console.log("Trying to loggin with face");
+			Login.facebookLogin();
+		}
+
+
 	}
 
 })();
