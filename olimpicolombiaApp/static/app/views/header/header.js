@@ -13,7 +13,6 @@
 	function controller($scope,Login) {
 		Login.get().$promise.then(function (usuario) {
 			$scope.usuario = usuario;
-			console.log("usuario", usuario);
 		});
 	}
 

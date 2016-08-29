@@ -13,8 +13,6 @@
 
 <dir-header></dir-header>
 <div ng-view class="container" style="width: 90%"></div>
-<fb:login-button onlogin="Log.info.bind('onlogin callback')">
-</fb:login-button>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
 <script src='http://connect.facebook.net/en_US/all.js'></script>
@@ -25,7 +23,6 @@
 <script src="{% static "bower_components/angular/angular.js" %}"></script>
 <script src="{% static "bower_components/angular-route/angular-route.min.js" %}"></script>
 <script src="{% static "bower_components/angular-resource/angular-resource.js" %}"></script>
-<script src="{% static "app/views/header/facebookScript.js" %}"></script>
 <script src="{% static "app/views/header/facebookLogin.js" %}"></script>
 <script src="{% static "app/app.js" %}"></script>
 

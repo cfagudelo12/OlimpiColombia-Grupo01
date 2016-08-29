@@ -61,9 +61,7 @@ def add_user_view(request):
 @permission_classes(())
 def current_user(request):
     user = request.user
-    print ("user: ", unicode(request.user))
     if user and (not user.is_anonymous()):
-
         return Response({
             'username': user.username,
             'first_name': user.first_name,

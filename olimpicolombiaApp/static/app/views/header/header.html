@@ -18,9 +18,10 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a>Facebook<span class="glyphicon glyphicon-user"></span></a>
-                    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-                    </fb:login-button>
+                    <a>
+                        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+                        </fb:login-button>
+                    </a>
                 </li>
                 <li ng-if="!usuario.username"><a href="#/registro">Registrar <span class="glyphicon glyphicon-user"></span></a></li>
                 <li ng-if="!usuario.username"><a href="/auth/login">Login <span class="glyphicon glyphicon-log-in"></span></a></li>
