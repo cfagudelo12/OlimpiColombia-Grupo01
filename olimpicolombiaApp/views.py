@@ -54,3 +54,21 @@ def add_user_view(request):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['GET'])
+@authentication_classes(())
+@permission_classes(())
+def current_user(request):
+    user = request.user
+    print ("user: ", user)
+    if user and (not user.is_anonymous()):
+
+        return Response({
+            'username': user.username,
+            'first_name': user.first_name,
+            'last_name': user.last_name,
+            'email': user.email,
+        })
+    else:
+        return Response(None)

@@ -11,6 +11,8 @@ urlpatterns =  [
     url(r'deportistas/(?P<idDeportista>[0-9]+)/eventos$',views.lista_eventos),
     url(r'^s3direct/', include('s3direct.urls')),
     url(r'^usuarios$', views.add_user_view ),
+    url(r'login/loggedin$', views.current_user ),
+
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
