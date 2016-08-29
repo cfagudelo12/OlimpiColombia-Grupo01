@@ -17,10 +17,10 @@
                 <li><a href="#/">Home</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#/registro">Registrar <span class="glyphicon glyphicon-user"></span></a></li>
-                <li ng-if="!usuario.first_name"><a href="/auth/login">Login <span class="glyphicon glyphicon-log-in"></span></a></li>
-                <li ng-if="usuario.first_name"><a> {{ usuario.first_name }}<span class="glyphicon glyphicon-log-in"> </span></a></li>
-                <li><a href="/auth/logout">Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
+                <li ng-if="!usuario.username"><a href="#/registro">Registrar <span class="glyphicon glyphicon-user"></span></a></li>
+                <li ng-if="!usuario.username"><a href="/auth/login">Login <span class="glyphicon glyphicon-log-in"></span></a></li>
+                <li ng-if="usuario.username"><a> {{ usuario.username }} <span class="glyphicon glyphicon-user"> </span></a></li>
+                <li ng-if="usuario.username"><a href="/auth/logout">Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

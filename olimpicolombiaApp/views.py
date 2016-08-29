@@ -57,11 +57,11 @@ def add_user_view(request):
 
 
 @api_view(['GET'])
-@authentication_classes(())
+@authentication_classes((SessionAuthentication, BasicAuthentication))
 @permission_classes(())
 def current_user(request):
     user = request.user
-    print ("user: ", user)
+    print ("user: ", unicode(request.user))
     if user and (not user.is_anonymous()):
 
         return Response({
