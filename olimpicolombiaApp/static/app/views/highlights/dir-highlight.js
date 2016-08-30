@@ -5,7 +5,7 @@
         return {
             restrict: 'E',
             scope: {
-            	url: "="
+                url: "="
             },
             templateUrl: 'static/app/views/highlights/dir-highlight.html',
             controller: controller
@@ -14,11 +14,13 @@
 
     function controller($scope) {
         $scope.$watch("url",function (nuevaUrl) {
-            console.log("Nue", nuevaUrl);
+            console.log("Nueva url de video ", nuevaUrl);
             if(nuevaUrl) {
-                setTimeout(function () {
-                videojs("video");
-                },1000);
+                var source = document.getElementById('videoMP4');
+                source.setAttribute('src', nuevaUrl);
+                var video = videojs("video");
+                video.load();
+                video.play();
 
             }
         });

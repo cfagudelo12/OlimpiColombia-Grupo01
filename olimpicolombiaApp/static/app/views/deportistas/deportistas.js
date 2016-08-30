@@ -18,6 +18,11 @@
 			moment.locale('es');
 			return moment(fecha).format('DD [de] MMMM [de] YYYY');
 		};
+		$scope.deportistaSelected=null;
+		$scope.selectDeportista = function (deprtista) {
+			console.log("deportista selected ", deprtista)
+			$scope.deportistaSelected=deprtista;
+		}
 	});
 
 })();

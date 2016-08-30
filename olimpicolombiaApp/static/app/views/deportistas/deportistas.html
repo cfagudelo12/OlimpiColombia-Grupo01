@@ -1,3 +1,16 @@
+<div class="JM_Telon" ng-show="deportistaSelected" >
+
+
+    <div class="centerFlex" style="height: 100%;width: 100%;">
+        <div>
+                <a ng-click="selectDeportista(null)" style="position: relative; top:-30px;font-size: 30px">Ocultar <span class="glyphicon glyphicon-remove-circle"></span></a>
+        <dir-highlight url="deportistaSelected.urlVideo"></dir-highlight>
+        </div>
+
+
+    </div>
+
+</div>
 <dir-deporte
         deporte="deporte">
 </dir-deporte>
@@ -22,9 +35,9 @@
                 <li class="list-group-item"><a class="btn btn-default" href="#/deportistas/{{ deportista.id }}" style="width: 100%">Ver calendario <span class="glyphicon glyphicon-calendar"></span></a></li>
             </ul>
         </div>
-        <div class="col-xs-12 col-md-4">
+        <div  class="col-xs-12 col-md-4">
             <div class="thumbnail centerFlex">
-                <dir-highlight url="deportista.urlVideo"></dir-highlight>
+                <button ng-click="selectDeportista(deportista)"><img src="static/images/video.png" ></button>
             </div>
         </div>
     </div>
