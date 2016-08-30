@@ -14,12 +14,12 @@
 
         var listeners = [];
         var user = null;
-
+        var accessToken=null;
         var loginUrl = '/api/login/loggedin';
         var facebookLoginUrl = '/api/login/facebook';
         $window.fbAsyncInit = function() {
             FB.init({
-                appId      : '1650538868592829', //id para heroku:  273510376365830
+                appId      : '273510376365830', //id para heroku:  273510376365830
                 cookie     : true,  // enable cookies to allow the server to access the session
                 xfbml      : true,  // parse social plugins on this page
                 version    : 'v2.5' // use graph api version 2.5
@@ -27,6 +27,7 @@
             console.log("Inicializa la aplicacion");
             FB.getLoginStatus(function(response) {
                 if (response.status === 'connected') {
+                    console.log(response);
                     facebookLogin();
                 } else if (response.status === 'not_authorized') {
                     console.log("Please log into this app");
