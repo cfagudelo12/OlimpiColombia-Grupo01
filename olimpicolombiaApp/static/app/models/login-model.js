@@ -15,6 +15,13 @@
         var listeners = [];
         var user = null;
         var accessToken=null;
+        var userId=null;
+        function getAccessToken() {
+            return accessToken;
+        }
+        function getUserId() {
+            return userId;
+        }
         var loginUrl = '/api/login/loggedin';
         var facebookLoginUrl = '/api/login/facebook';
         $window.fbAsyncInit = function() {
@@ -28,6 +35,9 @@
             FB.getLoginStatus(function(response) {
                 if (response.status === 'connected') {
                     console.log(response);
+                    accessToken=response.authResponse.accessToken;
+                    userId=response.authResponse.userID;
+                    this.accessToken=response.authResponse.accessToken;
                     facebookLogin();
                 } else if (response.status === 'not_authorized') {
                     console.log("Please log into this app");
@@ -72,11 +82,12 @@
                 callback(user)
             })
         }
-
         return {
             loggedIn: loggedIn,
             facebookLogin: facebookLogin,
-            watchUser: watchUser
+            watchUser: watchUser,
+            accessToken: getAccessToken,
+            userId: getUserId
         };
     });
 

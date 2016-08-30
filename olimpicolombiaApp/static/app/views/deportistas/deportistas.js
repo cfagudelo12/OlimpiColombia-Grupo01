@@ -2,7 +2,9 @@
 
 	var app = angular.module('app');
 
-	app.controller('DeportistasCtrl', function($scope, $sce, $routeParams, Deporte, Deportista) {
+	app.controller('DeportistasCtrl', function($scope, $sce, $routeParams, $http, Deporte, Deportista, Login) {
+		$scope.accessToken=Login.accessToken();
+		$scope.userId=Login.userId();
 		$scope.trustSrc = function(src) {
 			return $sce.trustAsResourceUrl(src);
 		};
