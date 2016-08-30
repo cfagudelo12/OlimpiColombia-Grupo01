@@ -11,12 +11,17 @@
 	});
 
 	function controller($scope, $timeout, Login) {
+
 		Login.watchUser(function (user) {
 			$scope.usuario = user;
 		})
+
 		$scope.loginFaceboook = function () {
 			console.log("Trying to loggin with face");
 			Login.facebookLogin();
 		}
+
+
 	}
+
 })();

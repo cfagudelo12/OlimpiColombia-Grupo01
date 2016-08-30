@@ -1,27 +1,18 @@
 {% load staticfiles %}
 
 <!DOCTYPE html>
-<html lang="en" ng-app="app" ng-controller="MetaCtrl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>OlimpiColombia</title>
     <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Patua+One'  >
     <link rel="stylesheet" type="text/css" href="{% static "bower_components/bootstrap/dist/css/bootstrap.css" %}">
     <link rel="stylesheet" type="text/css" href="{% static "css/general.css" %}">
-    <meta property="og:url"           content="http://localhost" />
-	<meta property="og:type"          content="website" />
-	<meta property="og:title"         content="Olimpicolombia" />
-	<meta property="og:description"   content="Descripcion" />
-    <meta property="og:type"          content="video"/>
-    <meta property="og:video"         content="https://s3-us-west-2.amazonaws.com/olimpicolombia-g01/videos/VideoMarianaPajon.mp4" />
-    <meta property="og:video:type"    content="video/mp4"/>
 </head>
-<body>
+<body ng-app="app">
 
 <dir-header></dir-header>
 <div ng-view class="container" style="width: 90%"></div>
-
-<script type="text/javascript" src="//connect.facebook.net/en_US/sdk.js"></script>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
 <script src="{% static "bower_components/moment/moment.js" %}"></script>
@@ -41,7 +32,6 @@
 <script src="{% static "app/views/eventos/eventos.js" %}"></script>
 <script src="{% static "app/views/usuarios/registro.js" %}"></script>
 <script src="{% static "app/views/header/header.js" %}"></script>
-<script src="{% static "app/views/deportistas/meta.js" %}"></script>
 
 <!-- load models -->
 <script src="{% static "app/models/deporte-model.js" %}"></script>
