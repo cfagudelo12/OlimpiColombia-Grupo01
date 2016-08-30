@@ -24,12 +24,7 @@
         </div>
         <div class="col-xs-12 col-md-4">
             <div class="thumbnail centerFlex">
-                <iframe style="width: 645px; height: 360px;" ng-src="{{trustSrc(deportista.urlVideo)}}" frameborder="0" allowfullscreen></iframe>
-                <div class="fb-share-button"
-                    data-href="{{trustSrc(deportista.urlVideo)}}"
-                    data-layout="button_count">
-                </div>
-                <form action="{{trustSrc('https://graph.facebook.com/'+userId+'/feed?message='+deportista.urlVideo+'&access_token='+accessToken)}}" method="post"><input type="submit" value="Submit"></form>
+                <dir-highlight url="deportista.urlVideo"></dir-highlight>
             </div>
         </div>
     </div>
