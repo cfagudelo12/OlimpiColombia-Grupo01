@@ -20,7 +20,7 @@
 	var roorDir = 'static/app/views/';
 
 
-	var app = angular.module('app', ['ngResource', 'ngRoute']);
+	var app = angular.module('app', ['ngResource', 'ngRoute', 'angulike']);
 	app.config(function($routeProvider, $httpProvider) {
 		moment.locale('es');
 		$routeProvider
