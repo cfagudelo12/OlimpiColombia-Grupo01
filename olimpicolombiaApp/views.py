@@ -89,8 +89,8 @@ def facebook_login(request):
         user = User.objects.get(email=email)
         print("El usuario de la base de datos es:", user.username)
     except User.DoesNotExist:
-        print("El usuario no se encuentra registredo")
-        raise exceptions.AuthenticationFailed('No such user')
+        user = User.objects.create_user(username=name, email=email, first_name=name, password="Facebook User")
+        print("Se ha registrado el usuario con la cuenta de Facebook")
     login(request, user)
     return Response({
         'username': user.username,
