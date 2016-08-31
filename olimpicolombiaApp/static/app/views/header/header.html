@@ -17,16 +17,18 @@
                 <li><a href="#/">Home</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li>
+                <li ng-if="usuario.username"><a> {{ usuario.username }} <span class="glyphicon glyphicon-user"> </span></a></li>
+
+                <li ng-if="!usuario.username"><a href="#/registro">Registrar <span class="glyphicon glyphicon-user"></span></a></li>
+                <li ng-if="!usuario.username">
                     <a ng-click="loginFaceboook()">
                         <fb:login-button scope="public_profile,email,publish_actions" >
                         </fb:login-button>
                     </a>
                 </li>
-                <li ng-if="!usuario.username"><a href="#/registro">Registrar <span class="glyphicon glyphicon-user"></span></a></li>
                 <li ng-if="!usuario.username"><a href="/auth/login">Login <span class="glyphicon glyphicon-log-in"></span></a></li>
-                <li ng-if="usuario.username"><a> {{ usuario.username }} <span class="glyphicon glyphicon-user"> </span></a></li>
-                <li ng-if="usuario.username"><a href="/auth/logout">Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
+
+                <li ng-if="usuario.username"><a ng-click="logout()" >Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

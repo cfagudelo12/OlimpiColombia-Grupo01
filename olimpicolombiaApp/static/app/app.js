@@ -33,14 +33,16 @@
 			})
 			.when('/deportes/:idDeporte', {
 				controller: 'DeportistasCtrl',
-				templateUrl: roorDir + 'deportistas/deportistas.html'/*,
+				templateUrl: roorDir + 'deportistas/deportistas.html',
+				reloadOnSearch: false/*,
 				resolve: {
 					loggedin: checkLoggedin
 				}*/
 			})
 			.when('/deportistas/:idDeportista', {
 				controller: 'EventosCtrl',
-				templateUrl: roorDir + 'eventos/eventos.html'/*,
+				templateUrl: roorDir + 'eventos/eventos.html',
+				reloadOnSearch: false/*,
 				resolve: {
 					loggedin: checkLoggedin
 				}*/

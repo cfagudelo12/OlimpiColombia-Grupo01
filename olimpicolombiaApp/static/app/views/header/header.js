@@ -20,6 +20,9 @@
 			console.log("Trying to loggin with face");
 			Login.facebookLogin();
 		}
+		$scope.logout = function () {
+			Login.logout();
+		}
 
 
 	}

@@ -3,8 +3,8 @@
 
     <div class="centerFlex" style="height: 100%;width: 100%;">
         <div>
-                <a ng-click="selectDeportista(null)" style="position: relative; top:-30px;font-size: 30px">Ocultar <span class="glyphicon glyphicon-remove-circle"></span></a>
-        <dir-highlight url="deportistaSelected.urlVideo"></dir-highlight>
+            <a ng-click="selectDeportista(null)" style="position: relative; top:-30px;font-size: 30px">Ocultar <span class="glyphicon glyphicon-remove-circle"></span></a>
+            <dir-highlight url="deportistaSelected.urlVideo"></dir-highlight>
         </div>
 
 
@@ -39,6 +39,7 @@
             <div class="thumbnail centerFlex">
                 <button ng-click="selectDeportista(deportista)"><img src="static/images/video.png" ></button>
             </div>
+            <div fb-like="{{ darUrlVideo(deportista) }}"></div>
         </div>
     </div>
 </div>

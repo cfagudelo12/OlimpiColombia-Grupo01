@@ -27,7 +27,7 @@
         var facebookLoginUrl = '/api/login/facebook';
         $window.fbAsyncInit = function() {
             FB.init({
-                appId      : '273510376365830', //id para heroku:  273510376365830
+                appId      : '1650538868592829', //id para heroku:  273510376365830
                 cookie     : true,  // enable cookies to allow the server to access the session
                 xfbml      : true,  // parse social plugins on this page
                 version    : 'v2.5' // use graph api version 2.5
@@ -45,6 +45,9 @@
                 } else {
                     console.log("Please log into Facebook");
                 }
+            });
+            FB.Event.subscribe('auth.login', function(response) {
+                facebookLogin()
             });
 
         };
@@ -83,12 +86,25 @@
                 callback(user)
             })
         }
+
+        function logout() {
+            console.log("Se intenta desloguear ")
+            if (FB.getAccessToken() != null) {
+                FB.logout(function(response) {
+                    location.href="/auth/logout"
+                });
+            } else {
+                location.href="/auth/logout"
+            }
+
+        }
         return {
             loggedIn: loggedIn,
             facebookLogin: facebookLogin,
             watchUser: watchUser,
             accessToken: getAccessToken,
-            userId: getUserId
+            userId: getUserId,
+            logout: logout
         };
     });
 
